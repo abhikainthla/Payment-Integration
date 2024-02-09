@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Integration</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <div id="container">
+            <div id="product">
+                <img src="assets/pexels-rangga-aditya-armien-189199.jpg" alt="Product Image">
+                <h2 id="product-title">Sweatshirt</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: 800</p>
+                <input type="hidden"  id="amount" value="800">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-angela-roma-7479825.jpg" alt="Product Image">
+                <h2 id="product-title">Hoodie</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: 1000</p>
+                <input type="hidden"  id="amount" value="1000">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-ron-lach-9594422.jpg" alt="Product Image">
+                <h2 id="product-title">Henley</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: 500</p>
+                <input type="hidden"  id="amount" value="500">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-pixabay-65676.jpg" alt="Product Image">
+                <h2 id="product-title">Jeans</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: 1000</p>
+                <input type="hidden"  id="amount" value="1000">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-andrea-piacquadio-3755706.jpg" alt="Product Image">
+                <h2 id="product-title">Blazzer</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: 2500</p>
+                <input type="hidden"  id="amount" value="2500">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-tamar-willoughby-951889.jpg" alt="Product Image">
+                <h2 id="product-title">Jacket</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: 1500</p>
+                <input type="hidden"  id="amount" value="1500">
+                <button id="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        <div id="cart">
+            <ul id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+              </ul>
+              <p id="cart-total">Total: ₹0.00</p>
+              <button id="checkout">Checkout</button>
+        </div>
+    </main>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

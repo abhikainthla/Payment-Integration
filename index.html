@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Integration</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
@@ -13,61 +14,115 @@
                 <img src="assets/pexels-rangga-aditya-armien-189199.jpg" alt="Product Image">
                 <h2 id="product-title">Sweatshirt</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: 800</p>
+                <p id="product-price">Price: ₹800</p>
                 <input type="hidden"  id="amount" value="800">
                 <button id="add-to-cart">Add to Cart</button>
+               <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
             <div id="product">
                 <img src="assets/pexels-angela-roma-7479825.jpg" alt="Product Image">
                 <h2 id="product-title">Hoodie</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: 1000</p>
+                <p id="product-price">Price: ₹1000</p>
                 <input type="hidden"  id="amount" value="1000">
                 <button id="add-to-cart">Add to Cart</button>
+                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
             <div id="product">
                 <img src="assets/pexels-ron-lach-9594422.jpg" alt="Product Image">
                 <h2 id="product-title">Henley</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: 500</p>
+                <p id="product-price">Price: ₹500</p>
                 <input type="hidden"  id="amount" value="500">
                 <button id="add-to-cart">Add to Cart</button>
+                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
             <div id="product">
                 <img src="assets/pexels-pixabay-65676.jpg" alt="Product Image">
                 <h2 id="product-title">Jeans</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: 1000</p>
+                <p id="product-price">Price: ₹1000</p>
                 <input type="hidden"  id="amount" value="1000">
                 <button id="add-to-cart">Add to Cart</button>
+                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
             <div id="product">
                 <img src="assets/pexels-andrea-piacquadio-3755706.jpg" alt="Product Image">
                 <h2 id="product-title">Blazzer</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: 2500</p>
+                <p id="product-price">Price: ₹2500</p>
                 <input type="hidden"  id="amount" value="2500">
                 <button id="add-to-cart">Add to Cart</button>
+                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
             <div id="product">
                 <img src="assets/pexels-tamar-willoughby-951889.jpg" alt="Product Image">
                 <h2 id="product-title">Jacket</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: 1500</p>
+                <p id="product-price">Price: ₹1500</p>
                 <input type="hidden"  id="amount" value="1500">
                 <button id="add-to-cart">Add to Cart</button>
+                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
         </div>
         <div id="cart">
             <ul id="cart-items">
-                <!-- Cart items will be dynamically added here -->
-              </ul>
+
+            </ul>
               <p id="cart-total">Total: ₹0.00</p>
               <button id="checkout">Checkout</button>
+              <input type="hidden" id="total">
         </div>
     </main>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+document.getElementById("checkout").onclick =async function(e){
+    e.preventDefault();
+
+    let response = await fetch("http://localhost:3000/payment",{
+        method:"POST",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({
+            amount: 500,
+        }),
+    })
+
+    let orderData = await response.json();
+    var options = {
+    "key": "rzp_test_7A6kAcwf6De6CI", // Enter the Key ID generated from the Dashboard
+    "amount": "500", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp", //your business name
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": orderData.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
+        "name": "Gaurav Kumar", //your customer's name
+        "email": "gaurav.kumar@example.com", 
+        "contact": "9000090000"  //Provide the customer's phone number for better conversion rates 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};
+var rzp1 = new Razorpay(options);
+    rzp1.open();
+
+}
+</script>
+
     <script src="script.js"></script>
 </body>
 </html>

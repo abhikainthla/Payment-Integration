@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateTotal(price) {
         var currentTotal = parseFloat(document.getElementById("cart-total").textContent.replace("Total: ₹", ""));
         var newTotal = currentTotal + price;
+        document.getElementById("total").value = newTotal;
         document.getElementById("cart-total").textContent = "Total: ₹" + newTotal.toFixed(2);
     }
 
@@ -35,6 +36,38 @@ document.addEventListener("DOMContentLoaded", function() {
         
     });
 });
+
+
+
+// order creation
+// document.getElementById("checkout").addEventListener("click", orderCreated);
+//      function orderCreated(){
+//         console.log("payment started");
+//         var total = document.getElementById("total").value;
+//         if(total =='' || total ==null){
+//             alert("Your cart is empty");
+//             return;
+//         }
+//         console.log(total);
+//         $.ajax(
+//             {
+//                 url :'/server',
+//                 type:'POST',
+//                 data:JSON.stringify({"total":total}),
+//                 contentType:'application/json',
+//                 dataType:'json',
+//                 success:function(response){
+//                     console.log(response);
+//                 },
+//                 error:function (error) {
+//                    console.log('Error');
+//                 }
+//             }
+//         )
+//     }
+
+
+
 
 // var options = {
 //     "key": "YOUR_KEY_ID", // Enter the Key ID generated from the Dashboard

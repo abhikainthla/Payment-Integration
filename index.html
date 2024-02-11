@@ -6,6 +6,7 @@
     <title>Payment Integration</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>
 </head>
 <body>
     <main>
@@ -16,6 +17,11 @@
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
                 <p id="product-price">Price: ₹800</p>
                 <input type="hidden"  id="amount" value="800">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
                 <button id="add-to-cart">Add to Cart</button>
                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
@@ -25,6 +31,11 @@
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
                 <p id="product-price">Price: ₹1000</p>
                 <input type="hidden"  id="amount" value="1000">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
                 <button id="add-to-cart">Add to Cart</button>
                 <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
@@ -34,6 +45,11 @@
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
                 <p id="product-price">Price: ₹500</p>
                 <input type="hidden"  id="amount" value="500">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
                 <button id="add-to-cart">Add to Cart</button>
                 <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
@@ -43,6 +59,11 @@
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
                 <p id="product-price">Price: ₹1000</p>
                 <input type="hidden"  id="amount" value="1000">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
                 <button id="add-to-cart">Add to Cart</button>
                 <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
@@ -52,6 +73,11 @@
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
                 <p id="product-price">Price: ₹2500</p>
                 <input type="hidden"  id="amount" value="2500">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
                 <button id="add-to-cart">Add to Cart</button>
                 <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
@@ -61,11 +87,17 @@
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
                 <p id="product-price">Price: ₹1500</p>
                 <input type="hidden"  id="amount" value="1500">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
                 <button id="add-to-cart">Add to Cart</button>
                 <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
             </div>
         </div>
         <div id="cart">
+            <div id="cart-icon"><i class="gg-shopping-cart"></i></div>
             <ul id="cart-items">
 
             </ul>
@@ -81,7 +113,7 @@
 document.getElementById("checkout").onclick =async function(e){
     e.preventDefault();
     let total = parseInt(document.getElementById("total").value);
-    let response = await fetch("https://abhikainthla.github.io/Payment-Integration/payment",{
+    let response = await fetch("http://localhost:3000/payment",{
         method:"POST",
         headers: {
             "Content-Type" : "application/json"

@@ -81,7 +81,7 @@
 document.getElementById("checkout").onclick =async function(e){
     e.preventDefault();
 
-    let response = await fetch("http://localhost:3000/payment",{
+    let response = await fetch("/payment",{
         method:"POST",
         headers: {
             "Content-Type" : "application/json"

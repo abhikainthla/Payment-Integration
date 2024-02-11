@@ -17,10 +17,10 @@ app.post("/payment", async (req, res)=>{
         key_secret :'sCrYLzBVLqRbKFFxbjkKjX2E',
     })
 let order = await instance.orders.create({
-    amount: amount*100,  // amount in the smallest currency unit
+        amount: amount*100,  // amount in the smallest currency unit
         currency: "INR",
         receipt: "order_rcptid_11",
-})        
+})   
       res.status(201).json({
         success : true,
         order,

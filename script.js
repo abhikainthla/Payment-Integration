@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const orders = document.getElementById("dropdown-item2");
     orders.addEventListener( "click", () =>{
-        let orderData += JSON.parse(localStorage.getItem('order'));
+        let orderData = JSON.parse(localStorage.getItem('order'));
         if (orderData !== null){
             alert(`Your Order:\n${orderData.details}`);}
             else{alert("No Orders Yet!")};

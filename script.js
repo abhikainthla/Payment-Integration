@@ -21,14 +21,15 @@ document.addEventListener("DOMContentLoaded", function() {
             button.style.border = "1px solid #007bff";
             button.innerHTML = 'Added to cart!!';
             button.disabled = true;
-            // Get product details
+            // Getting product details
             var productContainer = button.parentElement;
             var productName = productContainer.querySelector("#product-title").textContent;
             var productPrice = parseFloat(productContainer.querySelector("#amount").value);
             var quantity = parseInt(productContainer.querySelector("#slider").value);
             
-            // Create a new list item for the cart
+            // Create\ing a new list item for the cart
             var cartItem = document.createElement("li");
+            cartItem.setAttribute("id","cartItem");
             var totalPrice = productPrice * quantity;
             cartItem.textContent = productName + " - ₹" + totalPrice.toFixed(2) + " (" + quantity + " x ₹" + productPrice.toFixed(2) + ")";
 
@@ -49,6 +50,66 @@ document.addEventListener("DOMContentLoaded", function() {
     // Event listener for the checkout button
     document.getElementById("checkout").addEventListener("click", function() {
         alert("Thank you for your purchase!");
+        const orderDetails = document.getElementById("cartItem").innerText;
+        const total = document.getElementById("total").value;
+        const orderTotal = orderDetails +'\n'+'Order Total : ₹'+total;
+        localStorage.setItem('order', JSON.stringify({details : orderTotal}));
     });
 
+    const orders = document.getElementById("dropdown-item2");
+    orders.addEventListener( "click", () =>{
+        let orderData += JSON.parse(localStorage.getItem('order'));
+        if (orderData !== null){
+            alert(`Your Order:\n${orderData.details}`);}
+            else{alert("No Orders Yet!")};
+            })
+    //--------------------------------- menu button ------------------------------------
+
+    const menuButton = document.getElementById("menu-button");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+  
+    let isMenuVisible = false;
+  
+    function toggleMenu() {
+        console.log(isMenuVisible);
+      isMenuVisible = !isMenuVisible;
+      dropdownMenu.style.display = isMenuVisible ? "block" : "none";
+    }
+  
+    menuButton.addEventListener("click", toggleMenu);
+
+
+    const cartOption = document.getElementById("dropdown-item1");
+    const cartOrder = document.getElementById("cart");
+    const mainContainer = document.getElementById("main-container");
+  
+    let isCartVisible = false;
+  
+    function toggleCartMenu() {
+        console.log(isCartVisible);
+      isCartVisible = !isCartVisible;
+      cartOrder.style.display = isCartVisible ? "block" : "none";
+
+
+    }
+  
+    cartOption.addEventListener("click", toggleCartMenu);
+
+    const remove = document.getElementById("remove-cart");
+    remove.addEventListener('click', () =>{
+        cartOrder.style.display ="none";
+        isCartVisible=false;
+    })
+
+    const openCartButtons = document.querySelectorAll("#go-to-cart");
+
+    openCartButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            cartOrder.style.display ="block";
+            isCartVisible = true;
+        });
+    });
+    
+ 
 });
+

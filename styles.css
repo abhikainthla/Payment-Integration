@@ -1,3 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+/* navbar */
+#main-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-left: 20px;
+}
+#nav-bar{
+  width: 60px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-left: 20px;
+}
+
+#dropdown-menu {
+  margin-left: 20px;
+  display: none;
+}
+
+#menu-button {
+  border: none;
+  background-color: transparent;
+}
+#dropdown-item2 {
+  width: 80px;
+  height: 30px;
+  background-color: #007bff;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #fff;
+  z-index: 10;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+#dropdown-item1 {
+  width: 80px;
+  height: 30px;
+  background-color: #007bff;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #fff;
+  z-index: 10;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+#dropdown-item1:hover{
+  background-color: #0056b3; 
+}
+
+#dropdown-item2:hover{
+  background-color: #0056b3; 
+}
 
 #container{
     display: flex;
@@ -34,6 +101,13 @@
     font-size: 18px;
     font-weight: bold;
     color: #007bff; 
+    margin-top: 10px;
+
+}
+
+#slidecontainer {
+  margin-top: 10px;
+
 }
   
 #add-to-cart {
@@ -72,15 +146,28 @@
 /* ------------------------- style for cart --------------------------- */
 
 #cart {
-    width: 350px;
+    width: 500px;
+    min-height: 200px;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
     text-align: center;
-    position: relative;
-    left: 34%;
+    position: absolute;
+    top: 40%;
+    left: 31%;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: none;
   }
   
+  #remove-cart {
+    cursor: pointer;
+    position: relative;
+    top: -20px;
+
+  }
+
   #cart h2 {
     margin-top: 0;
   }

@@ -7,8 +7,19 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-left-alt.css' rel='stylesheet'>
 </head>
 <body>
+    <div id="main-container">
+            <div id="nav-bar">
+                <div id="menu"><button id="menu-button"><i class="gg-menu-left-alt"></i></button>
+                    <div id="dropdown-menu">
+                        <div id="dropdown-item1">Cart</div>
+                        <div id="dropdown-item2">Orders</div>
+                      </div>
+                </div>
+            </div>
+    </header>
     <main>
         <div id="container">
             <div id="product">
@@ -23,7 +34,7 @@
                     <p id="quantity-value"></p>
                   </div>
                 <button id="add-to-cart">Add to Cart</button>
-               <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
+               <button id="go-to-cart">Go to Cart</button>
             </div>
             <div id="product">
                 <img src="assets/pexels-angela-roma-7479825.jpg" alt="Product Image">
@@ -37,7 +48,7 @@
                     <p id="quantity-value"></p>
                   </div>
                 <button id="add-to-cart">Add to Cart</button>
-                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
+                <button id="go-to-cart">Go to Cart</button>
             </div>
             <div id="product">
                 <img src="assets/pexels-ron-lach-9594422.jpg" alt="Product Image">
@@ -51,7 +62,7 @@
                     <p id="quantity-value"></p>
                   </div>
                 <button id="add-to-cart">Add to Cart</button>
-                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
+                <button id="go-to-cart">Go to Cart</button>
             </div>
             <div id="product">
                 <img src="assets/pexels-pixabay-65676.jpg" alt="Product Image">
@@ -65,7 +76,7 @@
                     <p id="quantity-value"></p>
                   </div>
                 <button id="add-to-cart">Add to Cart</button>
-                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
+                <button id="go-to-cart">Go to Cart</button>
             </div>
             <div id="product">
                 <img src="assets/pexels-andrea-piacquadio-3755706.jpg" alt="Product Image">
@@ -79,7 +90,7 @@
                     <p id="quantity-value"></p>
                   </div>
                 <button id="add-to-cart">Add to Cart</button>
-                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
+                <button id="go-to-cart">Go to Cart</button>
             </div>
             <div id="product">
                 <img src="assets/pexels-tamar-willoughby-951889.jpg" alt="Product Image">
@@ -93,11 +104,11 @@
                     <p id="quantity-value"></p>
                   </div>
                 <button id="add-to-cart">Add to Cart</button>
-                <a href="#cart"><button id="go-to-cart">Go to Cart</button></a>
+                <button id="go-to-cart">Go to Cart</button>
             </div>
         </div>
         <div id="cart">
-            <div id="cart-icon"><i class="gg-shopping-cart"></i></div>
+            <div id="cart-icon"><i class="gg-shopping-cart"></i> <span id="remove-cart">X</span></div>
             <ul id="cart-items">
 
             </ul>
@@ -106,6 +117,7 @@
               <input type="hidden" id="total">
         </div>
     </main>
+    </div>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 
@@ -135,7 +147,7 @@ document.getElementById("checkout").onclick =async function(e){
     "handler": function (response){
         alert(response.razorpay_payment_id);
         alert(response.razorpay_order_id);
-        alert(response.razorpay_signature)
+        alert(response.razorpay_signature);
     },
     
 };

@@ -1,3 +1,13 @@
+//------------------------  script for loader -------------------------------------
+document.onreadystatechange = function() {
+    if (document.readyState !== "complete") {
+        document.querySelector("body").style.visibility = "hidden";
+        document.querySelector("#loader").style.visibility = "visible";
+    } else {
+        document.querySelector("#loader").style.display = "none";
+        document.querySelector("body").style.visibility = "visible";
+    }
+  };
 //------------------------ script for slider --------------------------------------
 
 const sliders = document.querySelectorAll("#slider");
@@ -47,22 +57,36 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("cart-total").textContent = "Total: ₹" + newTotal.toFixed(2);
     }
 
+    const orders = document.getElementById("dropdown-item2");
+    const orderHistory = document.getElementById("order-details");
+    const orderList = document.getElementById("orders");
+
     // Event listener for the checkout button
     document.getElementById("checkout").addEventListener("click", function() {
         alert("Thank you for your purchase!");
         const orderDetails = document.getElementById("cartItem").innerText;
         const total = document.getElementById("total").value;
-        const orderTotal = orderDetails +'\n'+'Order Total : ₹'+total;
+        const orderTotal = orderDetails +'\n'+'Order Total : ₹'+total+'\n';
         localStorage.setItem('order', JSON.stringify({details : orderTotal}));
+        const orderItems = document.createElement("li");
+        let orderData = JSON.parse(localStorage.getItem('order'));
+            orderItems.innerText = `\nYour Order:\n${orderData.details}\n`;
+            orderList.append(orderItems);  
+
     });
 
-    const orders = document.getElementById("dropdown-item2");
+
     orders.addEventListener( "click", () =>{
-        let orderData = JSON.parse(localStorage.getItem('order'));
-        if (orderData !== null){
-            alert(`Your Order:\n${orderData.details}`);}
-            else{alert("No Orders Yet!")};
+        orderHistory.style.display = "block";
             })
+
+            const removeOrderDiv = document.getElementById("remove-order");
+            removeOrderDiv.addEventListener( "click", ()=>{
+                orderHistory.style.display = 'none';
+            }) 
+
+
+
     //--------------------------------- menu button ------------------------------------
 
     const menuButton = document.getElementById("menu-button");
@@ -80,9 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     const cartOption = document.getElementById("dropdown-item1");
-    const cartOrder = document.getElementById("cart");
-    const mainContainer = document.getElementById("main-container");
-  
+    const cartOrder = document.getElementById("cart");  
     let isCartVisible = false;
   
     function toggleCartMenu() {

@@ -8,8 +8,25 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-cart.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu-left-alt.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/shopping-bag.css' rel='stylesheet'>
 </head>
 <body>
+    <div id="loader">
+        <svg class="pl" viewBox="0 0 200 200" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="pl-grad1" x1="1" y1="0.5" x2="0" y2="0.5">
+                    <stop offset="0%" stop-color="hsl(313,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+                <linearGradient id="pl-grad2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="hsl(313,90%,55%)" />
+                    <stop offset="100%" stop-color="hsl(223,90%,55%)" />
+                </linearGradient>
+            </defs>
+            <circle class="pl__ring" cx="100" cy="100" r="82" fill="none" stroke="url(#pl-grad1)" stroke-width="36" stroke-dasharray="0 257 1 257" stroke-dashoffset="0.01" stroke-linecap="round" transform="rotate(-90,100,100)" />
+            <line class="pl__ball" stroke="url(#pl-grad2)" x1="100" y1="18" x2="100.01" y2="182" stroke-width="36" stroke-dasharray="1 165" stroke-linecap="round" />
+        </svg>
+        </div>
     <div id="main-container">
             <div id="nav-bar">
                 <div id="menu"><button id="menu-button"><i class="gg-menu-left-alt"></i></button>
@@ -21,6 +38,7 @@
             </div>
     </header>
     <main>
+        <h1>Payment Integration Demo</h1>
         <div id="container">
             <div id="product">
                 <img src="assets/pexels-rangga-aditya-armien-189199.jpg" alt="Product Image">
@@ -82,8 +100,8 @@
                 <img src="assets/pexels-andrea-piacquadio-3755706.jpg" alt="Product Image">
                 <h2 id="product-title">Blazzer</h2>
                 <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
-                <p id="product-price">Price: ₹2500</p>
-                <input type="hidden"  id="amount" value="2500">
+                <p id="product-price">Price: ₹3500</p>
+                <input type="hidden"  id="amount" value="3500">
                 <div id="slidecontainer">
                     <p>Select Quantity:</p>
                     <input type="range" min="1" max="10" value="1" id="slider">
@@ -106,6 +124,48 @@
                 <button id="add-to-cart">Add to Cart</button>
                 <button id="go-to-cart">Go to Cart</button>
             </div>
+            <div id="product">
+                <img src="assets/pexels-rafa-de-345415.jpg" alt="Product Image">
+                <h2 id="product-title">Sports Shoes</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: ₹4000</p>
+                <input type="hidden"  id="amount" value="4000">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
+                <button id="add-to-cart">Add to Cart</button>
+                <button id="go-to-cart">Go to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-mnz-1670766.jpg" alt="Product Image">
+                <h2 id="product-title">Casual Shoes</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: ₹3500</p>
+                <input type="hidden"  id="amount" value="3500">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
+                <button id="add-to-cart">Add to Cart</button>
+                <button id="go-to-cart">Go to Cart</button>
+            </div>
+            <div id="product">
+                <img src="assets/pexels-fernando-arcos-190819.jpg" alt="Product Image">
+                <h2 id="product-title">Watch</h2>
+                <p id="product-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nisl eget nisi semper ullamcorper.</p>
+                <p id="product-price">Price: ₹10000</p>
+                <input type="hidden"  id="amount" value="10000">
+                <div id="slidecontainer">
+                    <p>Select Quantity:</p>
+                    <input type="range" min="1" max="10" value="1" id="slider">
+                    <p id="quantity-value"></p>
+                  </div>
+                <button id="add-to-cart">Add to Cart</button>
+                <button id="go-to-cart">Go to Cart</button>
+            </div>
         </div>
         <div id="cart">
             <div id="cart-icon"><i class="gg-shopping-cart"></i> <span id="remove-cart">X</span></div>
@@ -115,6 +175,12 @@
               <p id="cart-total">Total: ₹0.00</p>
               <button id="checkout">Checkout</button>
               <input type="hidden" id="total">
+        </div>
+        <div id="order-details">
+           <div id="order-icon"> <i class="gg-shopping-bag"></i> <span id="remove-order">X</span></div>
+            <ul id="orders">
+
+            </ul>
         </div>
     </main>
     </div>

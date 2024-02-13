@@ -22,11 +22,19 @@ body {
   margin-left: 20px;
 }
 
-h1{
+#heading{
   padding-top: 20px;
   text-align: center;
   color: #37474f;
   font-size: 48px;
+}
+
+#heading-mobile{
+  padding-top: 20px;
+  text-align: center;
+  color: #37474f;
+  font-size: 48px;
+  display: none;
 }
 
 #dropdown-menu {
@@ -312,4 +320,78 @@ h1{
 		animation-timing-function: ease-out;
 		stroke-dashoffset: -163;
 	}
+}
+
+/*------------------------ media queary for small screen -----------------------*/
+@media only screen and (max-width : 480px) {
+  #main-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0px;
+  }
+  #container{
+    width: 80%;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+  #heading{
+    display: none;
+  }
+  #heading-mobile{
+    display: block;
+    margin-top: 20px;
+  }
+
+  #nav-bar{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    height: auto;
+  }
+  #dropdown-menu{
+    margin-left: 0px;
+  }
+  #cart{
+    width: 333px;
+    left: 10%;
+  }
+  #order-details{
+    width: 333px;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width : 770px) and (min-width: 481px) {
+  #main-container{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #heading{
+    display: none;
+  }
+  #heading-mobile{
+    display: block;
+    margin-top: 20px;
+  }
+  #dropdown-menu{
+    margin-left: 0px;
+  }
+  #nav-bar{
+    margin-top: 20px;
+    margin-bottom: 0px;
+    height: auto;
+  }
+  #container{
+    margin-left: 20px;
+  }
+  #cart{
+    left: 17%;
+  }
+  #order-details{
+    left: 17%;
+  }
 }

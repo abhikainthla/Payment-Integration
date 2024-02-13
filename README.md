@@ -45,3 +45,9 @@ To get started with this demo, follow these steps:
 ![Screenshot (73)](https://github.com/abhikainthla/Payment-Integration/assets/105478999/44606e88-af35-4a75-8323-c0e3da59fac8)
 ![Screenshot (74)](https://github.com/abhikainthla/Payment-Integration/assets/105478999/aaf3fc00-dec8-4f01-8e35-ff41ecf6d899)
 ![Screenshot (75)](https://github.com/abhikainthla/Payment-Integration/assets/105478999/8638d770-7e30-47f8-a570-15e227aabdee)
+
+## Acknowledgments
+-Special thanks to the developers and communities behind the payment gateway SDKs and documentation.
+- Grateful of geekster for organizing this geekathon which led me to showcase and improve our skills.
+- Atlast Thankful of my teachers and mentors.<br/>
+Thank you for exploring the Payment Integration Demo website! If you have any questions or feedback, feel free to reach out. Happy integrating! 🚀

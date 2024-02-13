@@ -1,4 +1,4 @@
-![image](https://github.com/abhikainthla/Payment-Integration/assets/105478999/bd2b43d2-34e0-41b2-bd4a-22eb0837768a)# Payment-Integration
+# Payment-Integration
 
 ## Overview
 Welcome to the Payment Integration Demo website! This project serves as a demonstration of integrating payment gateways into your web application. Whether you're a developer exploring payment integration options or a business owner looking to accept online payments, this demo provides a simple, yet effective, example to get you started.
@@ -18,16 +18,16 @@ Welcome to the Payment Integration Demo website! This project serves as a demons
 ## Getting Started
 To get started with this demo, follow these steps:
 
-1. **Clone the Repository:**  Clone this repository to your local machine using the following command:
+1. **Clone the Repository:**  Clone this repository to your local machine using the following command:<br/>
    git clone https://github.com/abhikainthla/Payment-Integration.git
 
-2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies:
-   cd Payment-Integration
+2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies:<br/>
+   cd Payment-Integration <br/>
    npm install
 
 3. **Configuration:** Configure your payment gateway settings in the appropriate configuration files. Make sure to follow the instructions provided by your payment gateway provider.
 
-4. **Run the Application:** Start the development server to run the application locally:
+4. **Run the Application:** Start the development server to run the application locally:<br/>
    npm start
 
 5. **Explore:**  Open your web browser and navigate to http://localhost:3000 to explore the demo website.
